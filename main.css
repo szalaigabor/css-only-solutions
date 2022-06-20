@@ -39,6 +39,12 @@ article {
     box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
 }
 
+@media all and (max-width: 767px) {
+    article {
+        padding: 25px 10px 10px;
+    }
+}
+
 .page-wrapper {
     min-height: 100%;
     display: flex;
@@ -112,6 +118,12 @@ aside nav a:hover {
     flex: 1;
     transform: translate3d(0,0,0);
     transition: transform .2s ease;
+}
+
+@media all and (max-width: 767px) {
+    .page-content {
+        padding: 80px 20px;
+    }
 }
 
 /* Modal Box */
@@ -303,6 +315,12 @@ aside nav a:hover {
     text-align: center;
     display: block;
     transition: background-color .2s ease;
+}
+
+@media all and (max-width: 767px) {
+    .navigation ul li a {
+        font-size: 80%;
+    }
 }
 
 .navigation ul li a:hover {
