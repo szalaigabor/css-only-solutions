@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap');
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+
+:root {
+    --main-bg-color: #f1f5ff;
+    --green: #72d09b;
+    --blue: #2e5469;
+    --lightgray: #f5f5f5;
+    --gray: #c3c3c3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font: 14px/22px 'Open Sans', sans-serif;
+    background-color: var(--main-bg-color);
+    overflow-x: hidden;
+}
+
+h2 {
+    margin-bottom: 24px;
+}
+
+article {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 50px 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
+}
+
+.page-wrapper {
+    min-height: 100%;
+    display: flex;
+}
+
+input[data-function*='open-menu'] {
+    position: absolute;
+    opacity: 0;
+}
+
+label[data-function*='open-menu'] {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font: 42px/42px fontawesome;
+    color: var(--blue);
+    text-align: center;
+    transform: translate3d(0, 0, 0);
+    transition: transform .2s ease;
+    display: block;
+    cursor: pointer;
+    z-index: 5;
+}
+
+input[data-function*='open-menu']:checked ~ label[data-function*='open-menu'] {
+    transform: translate3d(260px, 0, 0);
+}
+
+input[data-function*='open-menu']:checked ~ .page-content {
+    transform: translate3d(260px, 0, 0);
+}
+
+input[data-function*='open-menu']:checked ~ .sidebar {
+    transform: translate3d(0, 0, 0);
+}
+
+aside {
+    width: 260px;
+    height: 100%;
+    padding: 30px 0 0;
+    position: fixed;
+    left: 0;
+    transform: translate3d(-260px, 0, 0);
+    transition: all .2s ease;
+    background-color: var(--green);
+}
+
+aside nav {
+    display: flex;
+    flex-direction: column;
+}
+
+aside nav a {
+    width: 100%;
+    line-height: 40px;
+    padding: 0 12px;
+    color: var(--lightgray);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color .2s ease;
+}
+
+aside nav a:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.page-content {
+    padding: 100px 40px;
+    flex: 1;
+    transform: translate3d(0,0,0);
+    transition: transform .2s ease;
+}
+
+/* Modal Box */
+.btn-green {
+    line-height: 50px;
+    padding: 0 24px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--green);
+    display: inline-block;
+    transition: background-color .2s ease;
+}
+
+.btn-green:hover {
+    background-color: #65b889;
+}
+
+.modal-window {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.65);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s;
+}
+
+.modal-window:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window > div {
+    width: 400px;
+    padding: 40px 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.modal-window > div h3 {
+    margin-bottom: 15px;
+}
+
+.modal-close {
+    width: 50px;
+    line-height: 50px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    text-decoration: none;
+    font-family: 'fontawesome';
+    color: var(--gray);
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+}
+
+.carousel .carousel-inner {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel .carousel-inner .slide-to:checked + .carousel-item {
+    position: relative;
+    opacity: 1;
+}
+
+.carousel .carousel-inner .carousel-item {
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .6s ease;
+}
+
+.carousel .carousel-inner .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel .carousel-inner .carousel-control {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-family: fontawesome;
+    font-size: 26px;
+    text-align: center;
+    color: var(--lightgray);
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+}
+
+.carousel .carousel-inner .carousel-control.prev {
+    left: 25px;
+}
+
+.carousel .carousel-inner .carousel-control.next {
+    right: 25px;
+}
+
+.carousel .carousel-inner .carousel-control:hover {
+    background-color: rgba(0, 0, 0, .85);
+}
+
+#slide-01:checked ~ .carousel-control-01,
+#slide-02:checked ~ .carousel-control-02,
+#slide-03:checked ~ .carousel-control-03 {
+    display: block;
+}
+
+.carousel .carousel-inner .carousel-indicators {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    list-style: none;
+    text-align: center;
+    z-index: 10;
+}
+
+.carousel .carousel-inner .carousel-indicators li {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.carousel .carousel-inner .carousel-indicators li .carousel-bullet {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+    opacity: .55;
+}
+
+.carousel .carousel-inner .carousel-indicators li .carousel-bullet:hover {
+    opacity: 1;
+}
+
+/* Dropdown menu */
+.navigation {
+    height: 50px;
+}
+
+.navigation ul {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1px;
+}
+
+.navigation ul li {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.navigation ul li a {
+    width: 100%;
+    line-height: 50px;
+    color: #fff;
+    background-color: var(--green);
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: background-color .2s ease;
+}
+
+.navigation ul li a:hover {
+    background-color: #65b889;
+}
+
+.navigation ul li.dropdown {
+    position: relative;
+}
+
+.navigation ul li.dropdown .dropdown-content {
+    width: 100%;
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navigation ul li.dropdown .dropdown-content a {
+    color: #444;
+    background-color: #f5f5f5;
+}
+
+.navigation ul li.dropdown .dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+.navigation ul li.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Tabs */
+.tab-panels {
+    background-color: #fff;
+    position: relative;
+}
+
+.tab-panels > label,
+.tab-panels > h3 {
+    width: calc(100% / 3);
+    height: 40px;
+    line-height: 40px;
+}
+
+.tab-panels > label {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.tab-panels > h3 {
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    background-color: var(--green);
+    transition: background-color .2s ease;
+    position: relative;
+}
+
+.tab-panels > label ~ label,
+.tab-panels > h3 ~ h3 {
+    position: absolute;
+    top: 0;
+}
+
+.tab-panels label:nth-child(1),
+.tab-panels h3:nth-child(3) {
+    left: 0;
+}
+
+.tab-panels label:nth-child(5),
+.tab-panels h3:nth-child(7) {
+    left: calc(100% / 3);
+}
+
+.tab-panels label:nth-child(9),
+.tab-panels h3:nth-child(11) {
+    left: calc((100% / 3) * 2);
+}
+
+.tab-panels input + h3 + .tab-content {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    background-color: var(--lightgray);
+    overflow: hidden;
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.tab-panels input:checked + h3 + .tab-content {
+    width: auto;
+    height: auto;
+    padding: 30px;
+    position: static;
+}
+
+.tab-panels input[name="tabs"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.tab-panels input[name="tabs"]:checked + h3 {
+    background-color: var(--blue);
+}
+
+.tab-panels input[name="tabs"]:checked + h3:after {
+    width: 0;
+    height: 0;
+    margin: auto;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--blue);
+    content: '';
+}
+
+/* Accordion */
+.accordion > [type="checkbox"] {
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.accordion label {
+    padding: 15px;
+    color: #fff;
+    background-color: var(--green);
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    transition: background-color .2s ease;
+    position: relative;
+}
+
+.accordion label:hover {
+    background-color: #65b889;
+}
+
+.accordion h3 label::before {
+    width: 10px;
+    margin-right: 10px;
+    font-family: 'fontawesome';
+    content: "\f105";
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.accordion > [type="checkbox"]:checked ~ h3 label::before {
+    content: "\f107";
+}
+
+.accordion .accordion-content {
+    height: 0;
+    overflow-y: hidden;
+    transition: height 0.3s ease;
+}
+
+.accordion > [type="checkbox"]:checked ~ .accordion-content {
+    height: auto;
+    padding: 20px;
+    background-color: var(--main-bg-color);
+    overflow: visible;
+}
+
+.accordion label {
+    display: block;
+}

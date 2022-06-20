@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Only Solutions</title>
+
+    <link href="./main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="page-wrapper">
+    <input data-function='open-menu' id='menu-opener' type='checkbox'>
+    <label data-function='open-menu' for='menu-opener'>&#xf0c9;</label>
+
+    <aside class="sidebar">
+        <nav>
+            <a href="#" title="Modal Box">Modal Box</a>
+            <a href="#" title="Carousel">Carousel</a>
+            <a href="#" title="Dropdown menu">Dropdown Menu</a>
+            <a href="#" title="Tab Panel">Tab Panel</a>
+            <a href="#" title="Collapsable Item">Collapsable Item</a>
+        </nav>
+    </aside>
+
+    <section class="page-content">
+        <article>
+            <h2>Modal Box</h2>
+
+            <a href="#open-modal" title="Open CSS only Modal" class="btn-green">Open CSS only Modal</a>
+        </article>
+
+        <article class="carousel-container">
+            <h2>Carousel</h2>
+
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <input type="radio" id="slide-01" name="slide" class="slide-to" hidden checked />
+                    <div class="carousel-item">
+                        <img src="http://fakeimg.pl/1980x400/72d09b/fff/?text=Slide 01">
+                    </div>
+
+                    <input type="radio" id="slide-02" name="slide" class="slide-to" hidden />
+                    <div class="carousel-item">
+                        <img src="http://fakeimg.pl/1980x400/2e5469/fff/?text=Slide 02">
+                    </div>
+
+                    <input type="radio" id="slide-03" name="slide" class="slide-to" hidden />
+                    <div class="carousel-item">
+                        <img src="http://fakeimg.pl/1980x400/72d09b/fff/?text=Slide 03">
+                    </div>
+
+                    <label for="slide-03" class="carousel-control carousel-control-01 prev">&#xf104;</label>
+                    <label for="slide-02" class="carousel-control carousel-control-01 next">&#xf105;</label>
+                    <label for="slide-01" class="carousel-control carousel-control-02 prev">&#xf104;</label>
+                    <label for="slide-03" class="carousel-control carousel-control-02 next">&#xf105;</label>
+                    <label for="slide-02" class="carousel-control carousel-control-03 prev">&#xf104;</label>
+                    <label for="slide-01" class="carousel-control carousel-control-03 next">&#xf105;</label>
+
+                    <ol class="carousel-indicators">
+                        <li><label for="slide-01" class="carousel-bullet">•</label></li>
+                        <li><label for="slide-02" class="carousel-bullet">•</label></li>
+                        <li><label for="slide-03" class="carousel-bullet">•</label></li>
+                    </ol>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <h2>Dropdown Menu</h2>
+
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#" target="_self" title="">Link 1</a></li>
+                    <li><a href="#" target="_self" title="">Link 2</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-btn">Link 3 (dropdown)</a>
+                        <div class="dropdown-content">
+                            <a href="#" target="_self" title="">Link 1</a>
+                            <a href="#" target="_self" title="">Link 2</a>
+                            <a href="#" target="_self" title="">Link 3</a>
+                        </div>
+                    </li>
+                    <li><a href="#" target="_self" title="">Link 4</a></li>
+                    <li><a href="#" target="_self" title="">Link 5</a></li>
+                </ul>
+            </nav>
+        </article>
+
+        <article>
+            <h2>Tab Panel</h2>
+
+            <div class="tab-panels">
+                <label for="tab-01"></label>
+                <input type="radio" id="tab-01" name="tabs" checked />
+                <h3>Tab 01</h3>
+                <div class="tab-content">
+                    <p>tab 01 tartalma</p>
+                </div>
+
+                <label for="tab-02"></label>
+                <input type="radio" id="tab-02" name="tabs" />
+                <h3>Tab 02</h3>
+                <div class="tab-content">
+                    <p>tab 02 tartalma</p>
+                </div>
+
+                <label for="tab-03"></label>
+                <input type="radio" id="tab-03" name="tabs" />
+                <h3>Tab 03</h3>
+                <div class="tab-content">
+                    <p>tab 03 tartalma</p>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <h2>Collapsable Item</h2>
+
+            <div class="accordion">
+                <input type="checkbox" id="accordion-01" name="collapse" checked />
+                <h3>
+                    <label for="accordion-01">Lorem ipsum dolor sit amet</label>
+                </h3>
+                <div class="accordion-content">
+                    <p><strong>Vivamus at:</strong> uis vitae lorem aliquet, ornare risus imperdiet, consectetur dolor.
+                        Vestibulum scelerisque et augue sed vestibulum.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <input type="checkbox" id="accordion-02" name="collapse" />
+                <h3>
+                    <label for="accordion-02">Donec sagittis tellus sed</label>
+                </h3>
+                <div class="accordion-content">
+                    <p><strong>Class aptent taciti:</strong> Vestibulum ac massa eget libero luctus consectetur at
+                        quis odio. Suspendisse semper velit quis finibus gravida.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <input type="checkbox" id="accordion-03" name="collapse" />
+                <h3>
+                    <label for="accordion-03">Phasellus tristique lobortis</label>
+                </h3>
+                <div class="accordion-content">
+                    <p><strong>Ut a nunc in purus:</strong> Curabitur et ligula feugiat, pretium ipsum ac, elementum
+                        nunc. Praesent vulputate lorem sapien. Nam sed enim malesuada neque consequat iaculis.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+</div>
+
+<div id="open-modal" class="modal-window">
+    <div>
+        <a href="#" title="Close" class="modal-close">&#xf00d;</a>
+        <h3>CSS only Modal</h3>
+        <p>Curabitur et ligula feugiat, pretium ipsum ac, elementum nunc. Praesent vulputate lorem sapien. Nam sed
+            enim malesuada neque consequat iaculis.</p>
+    </div>
+</div>
+
+</body>
+</html>
