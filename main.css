@@ -19,6 +19,10 @@ html, body {
     height: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font: 14px/22px 'Open Sans', sans-serif;
     background-color: var(--main-bg-color);
